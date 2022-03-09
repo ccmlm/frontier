@@ -7,7 +7,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,10 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#![cfg_attr(not(feature = "std"), no_std)]
+#![allow(warnings)]
 
-extern crate alloc;
-use alloc::vec::Vec;
 use curve25519_dalek::{
 	ristretto::{CompressedRistretto, RistrettoPoint},
 	scalar::Scalar,
@@ -49,7 +47,11 @@ impl LinearCostPrecompile for Curve25519Add {
 		};
 
 		let mut points = Vec::new();
+<<<<<<< HEAD
 		let mut temp_buf = <&[u8]>::clone(&input);
+=======
+		let mut temp_buf = input;
+>>>>>>> 10df058 (rm needless compenents)
 		while !temp_buf.is_empty() {
 			let mut buf = [0; 32];
 			buf.copy_from_slice(&temp_buf[0..32]);

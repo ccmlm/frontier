@@ -1,4 +1,5 @@
 [package]
+<<<<<<< HEAD
 name = "fp-evm"
 version = "3.0.0-dev"
 authors = ["Parity Technologies <admin@parity.io>"]
@@ -37,3 +38,15 @@ std = [
 	# Substrate FRAME
 	"frame-support/std",
 ]
+=======
+name = "ruc-fp-evm"
+version = "3.0.0"
+license = "Apache-2.0"
+edition = "2021"
+description = "..."
+homepage = "https://github.com/rust-util-collections/frontier"
+repository = "https://github.com/rust-util-collections/frontier"
+
+[dependencies]
+evm = { version = "0.35.0", default-features = false, features = ["std", "with-serde"] }
+>>>>>>> 10df058 (rm needless compenents)

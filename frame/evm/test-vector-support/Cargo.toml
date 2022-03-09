@@ -1,9 +1,10 @@
 [package]
-name = "pallet-evm-test-vector-support"
-version = "1.0.0-dev"
-authors = ["Parity Technologies <admin@parity.io>"]
+name = "ruc-evm-test-vector-support"
+version = "1.0.0"
 edition = "2021"
+description = "..."
 license = "Apache-2.0"
+<<<<<<< HEAD
 description = "Test vector support for EVM pallet."
 repository = "https://github.com/paritytech/frontier/"
 
@@ -18,3 +19,14 @@ sp-core = { version = "6.0.0", git = "https://github.com/paritytech/substrate", 
 
 # Frontier
 fp-evm = { version = "3.0.0-dev", path = "../../../primitives/evm" }
+=======
+homepage = "https://github.com/rust-util-collections/frontier"
+repository = "https://github.com/rust-util-collections/frontier"
+
+[dependencies]
+evm = { version = "0.35", default-features = false, features = ["with-codec"] }
+hex = { version = "0.4.3" }
+serde = { version = "1.0.101", features = ["derive"] }
+serde_json = { version = "1.0" }
+fp-evm = { package = "ruc-fp-evm", path = "../../../primitives/evm" }
+>>>>>>> 10df058 (rm needless compenents)

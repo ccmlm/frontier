@@ -1,0 +1,20 @@
+[package]
+name = "ruc-evm-precompile-ethpairing"
+version = "0.0.1"
+edition = "2021"
+description = "..."
+license = "Apache-2.0"
+homepage = "https://github.com/rust-util-collections/frontier"
+repository = "https://github.com/rust-util-collections/frontier"
+
+[dependencies]
+num_enum = { version = "0.5.4", default-features = false }
+fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
+
+precompile-utils = { package = "evm-precompiles", git = "https://github.com/rust-util-collections/evm-precompiles", tag = "ruc-v0.0.1"}
+
+eth_pairings = { git = "https://github.com/rust-util-collections/eip1962", tag = "pre-v1" }
+
+[dev-dependencies]
+hex = "0.4.3"
+ruc-evm-test-vector-support = { version = "1.0.0", path = "../../test-vector-support" }

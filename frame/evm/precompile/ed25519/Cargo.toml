@@ -1,9 +1,10 @@
 [package]
-name = "pallet-evm-precompile-ed25519"
-version = "2.0.0-dev"
-authors = ["Parity Technologies <admin@parity.io>"]
+name = "ruc-evm-precompile-ed25519"
+version = "2.0.0"
 edition = "2021"
+description = "..."
 license = "Apache-2.0"
+<<<<<<< HEAD
 description = "ED25519 precompiles for EVM pallet."
 repository = "https://github.com/paritytech/frontier/"
 
@@ -19,3 +20,11 @@ std = [
 	# Frontier
 	"fp-evm/std",
 ]
+=======
+homepage = "https://github.com/rust-util-collections/frontier"
+repository = "https://github.com/rust-util-collections/frontier"
+
+[dependencies]
+ed25519-dalek = { version = "1.0.0", default-features = false, features = ["alloc", "u64_backend"] }
+fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
+>>>>>>> 10df058 (rm needless compenents)

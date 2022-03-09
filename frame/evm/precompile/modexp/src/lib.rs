@@ -7,7 +7,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,12 +15,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+<<<<<<< HEAD
 #![cfg_attr(not(feature = "std"), no_std)]
+=======
+>>>>>>> 10df058 (rm needless compenents)
 #![allow(clippy::comparison_chain)]
 
-extern crate alloc;
-
-use alloc::vec::Vec;
 use core::{cmp::max, ops::BitAnd};
 
 use num::{BigUint, FromPrimitive, One, ToPrimitive, Zero};
@@ -86,6 +86,10 @@ fn calculate_gas_cost(
 
 	let multiplication_complexity = calculate_multiplication_complexity(base_length, mod_length);
 	let iteration_count = calculate_iteration_count(exp_length, exponent);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10df058 (rm needless compenents)
 	max(
 		MIN_GAS_COST,
 		multiplication_complexity * iteration_count / 3,
@@ -217,9 +221,13 @@ impl Precompile for Modexp {
 #[cfg(test)]
 mod tests {
 	use super::*;
+<<<<<<< HEAD
 	extern crate hex;
 	use fp_evm::Context;
 	use pallet_evm_test_vector_support::{test_precompile_test_vectors, MockHandle};
+=======
+	use ruc_evm_test_vector_support::test_precompile_test_vectors;
+>>>>>>> 10df058 (rm needless compenents)
 
 	#[test]
 	fn process_consensus_tests() -> Result<(), String> {
@@ -263,8 +271,8 @@ mod tests {
 	fn test_insufficient_input() -> Result<(), PrecompileFailure> {
 		let input = hex::decode(
 			"0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001",
+            0000000000000000000000000000000000000000000000000000000000000001\
+            0000000000000000000000000000000000000000000000000000000000000001",
 		)
 		.expect("Decode failed");
 
@@ -298,8 +306,8 @@ mod tests {
 	fn test_excessive_input() -> Result<(), PrecompileFailure> {
 		let input = hex::decode(
 			"1000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001",
+            0000000000000000000000000000000000000000000000000000000000000001\
+            0000000000000000000000000000000000000000000000000000000000000001",
 		)
 		.expect("Decode failed");
 
@@ -333,11 +341,11 @@ mod tests {
 	fn test_simple_inputs() {
 		let input = hex::decode(
 			"0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001\
-			03\
-			05\
-			07",
+            0000000000000000000000000000000000000000000000000000000000000001\
+            0000000000000000000000000000000000000000000000000000000000000001\
+            03\
+            05\
+            07",
 		)
 		.expect("Decode failed");
 
@@ -370,11 +378,11 @@ mod tests {
 	fn test_large_inputs() {
 		let input = hex::decode(
 			"0000000000000000000000000000000000000000000000000000000000000020\
-			0000000000000000000000000000000000000000000000000000000000000020\
-			0000000000000000000000000000000000000000000000000000000000000020\
-			000000000000000000000000000000000000000000000000000000000000EA5F\
-			0000000000000000000000000000000000000000000000000000000000000015\
-			0000000000000000000000000000000000000000000000000000000000003874",
+            0000000000000000000000000000000000000000000000000000000000000020\
+            0000000000000000000000000000000000000000000000000000000000000020\
+            000000000000000000000000000000000000000000000000000000000000EA5F\
+            0000000000000000000000000000000000000000000000000000000000000015\
+            0000000000000000000000000000000000000000000000000000000000003874",
 		)
 		.expect("Decode failed");
 
@@ -407,11 +415,11 @@ mod tests {
 	fn test_large_computation() {
 		let input = hex::decode(
 			"0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000020\
-			0000000000000000000000000000000000000000000000000000000000000020\
-			03\
-			fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2e\
-			fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f",
+            0000000000000000000000000000000000000000000000000000000000000020\
+            0000000000000000000000000000000000000000000000000000000000000020\
+            03\
+            fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2e\
+            fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f",
 		)
 		.expect("Decode failed");
 
