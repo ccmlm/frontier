@@ -1,11 +1,11 @@
 [package]
-name = "ovr-fp-evm"
+name = "ruc-fp-evm"
 version = "3.0.0"
 license = "Apache-2.0"
 edition = "2021"
 description = "..."
-homepage = "https://github.com/Overealityio/frontier"
-repository = "https://github.com/Overealityio/frontier"
+homepage = "https://github.com/rust-util-collections/frontier"
+repository = "https://github.com/rust-util-collections/frontier"
 
 [dependencies]
 evm = { version = "0.35.0", default-features = false, features = ["std", "with-serde"] }

@@ -1,16 +1,16 @@
 [package]
-name = "ovr-evm-precompile-modexp"
+name = "ruc-evm-precompile-modexp"
 version = "2.0.0"
 edition = "2021"
 description = "..."
 license = "Apache-2.0"
-homepage = "https://github.com/Overealityio/frontier"
-repository = "https://github.com/Overealityio/frontier"
+homepage = "https://github.com/rust-util-collections/frontier"
+repository = "https://github.com/rust-util-collections/frontier"
 
 [dependencies]
 num = { version = "0.4", features = ["alloc"], default-features = false }
-fp-evm = { package = "ovr-fp-evm", path = "../../../../primitives/evm" }
+fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
 
 [dev-dependencies]
 hex = "0.4.3"
-ovr-evm-test-vector-support = { version = "1.0.0" }
+ruc-evm-test-vector-support = { version = "1.0.0", path = "../../test-vector-support" }

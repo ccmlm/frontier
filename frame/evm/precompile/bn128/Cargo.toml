@@ -1,16 +1,16 @@
 [package]
-name = "ovr-evm-precompile-bn128"
+name = "ruc-evm-precompile-bn128"
 version = "2.0.0"
 edition = "2021"
 description = "..."
 license = "Apache-2.0"
-homepage = "https://github.com/Overealityio/frontier"
-repository = "https://github.com/Overealityio/frontier"
+homepage = "https://github.com/rust-util-collections/frontier"
+repository = "https://github.com/rust-util-collections/frontier"
 
 [dependencies]
 bn = { package = "substrate-bn", version = "0.6", default-features = false }
-fp-evm = { package = "ovr-fp-evm", path = "../../../../primitives/evm" }
+fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
 sp-core = "6.0.0"
 
 [dev-dependencies]
-ovr-evm-test-vector-support = { version = "1.0.0", path = "../../test-vector-support" }
+ruc-evm-test-vector-support = { version = "1.0.0", path = "../../test-vector-support" }

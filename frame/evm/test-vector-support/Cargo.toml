@@ -1,15 +1,15 @@
 [package]
-name = "ovr-evm-test-vector-support"
+name = "ruc-evm-test-vector-support"
 version = "1.0.0"
 edition = "2021"
 description = "..."
 license = "Apache-2.0"
-homepage = "https://github.com/Overealityio/frontier"
-repository = "https://github.com/Overealityio/frontier"
+homepage = "https://github.com/rust-util-collections/frontier"
+repository = "https://github.com/rust-util-collections/frontier"
 
 [dependencies]
 evm = { version = "0.35", default-features = false, features = ["with-codec"] }
 hex = { version = "0.4.3" }
 serde = { version = "1.0.101", features = ["derive"] }
 serde_json = { version = "1.0" }
-fp-evm = { package = "ovr-fp-evm", path = "../../../primitives/evm" }
+fp-evm = { package = "ruc-fp-evm", path = "../../../primitives/evm" }
