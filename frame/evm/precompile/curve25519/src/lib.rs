@@ -7,7 +7,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,8 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-extern crate alloc;
-use alloc::vec::Vec;
+#![allow(warnings)]
+
 use curve25519_dalek::{
 	ristretto::{CompressedRistretto, RistrettoPoint},
 	scalar::Scalar,
@@ -47,8 +47,8 @@ impl LinearCostPrecompile for Curve25519Add {
 		};
 
 		let mut points = Vec::new();
-		let mut temp_buf = input.clone();
-		while temp_buf.len() > 0 {
+		let mut temp_buf = input;
+		while !temp_buf.is_empty() {
 			let mut buf = [0; 32];
 			buf.copy_from_slice(&temp_buf[0..32]);
 			let point = CompressedRistretto::from_slice(&buf);
@@ -59,9 +59,7 @@ impl LinearCostPrecompile for Curve25519Add {
 		let sum = points
 			.iter()
 			.fold(RistrettoPoint::identity(), |acc, point| {
-				let pt = point
-					.decompress()
-					.unwrap_or_else(|| RistrettoPoint::identity());
+				let pt = point.decompress().unwrap_or_else(RistrettoPoint::identity);
 				acc + pt
 			});
 
@@ -95,7 +93,7 @@ impl LinearCostPrecompile for Curve25519ScalarMul {
 		pt_buf.copy_from_slice(&input[32..64]);
 		let point: RistrettoPoint = CompressedRistretto::from_slice(&pt_buf)
 			.decompress()
-			.unwrap_or_else(|| RistrettoPoint::identity());
+			.unwrap_or_else(RistrettoPoint::identity);
 
 		let scalar_mul = scalar * point;
 		Ok((

@@ -7,7 +7,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -128,7 +128,7 @@ impl LinearCostPrecompile for ECRecoverPublicKey {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use ovr_evm_test_vector_support::test_precompile_test_vectors;
+	use ruc_evm_test_vector_support::test_precompile_test_vectors;
 
 	// TODO: this fails on the test "InvalidHighV-bits-1" where it is expected to return ""
 	#[test]

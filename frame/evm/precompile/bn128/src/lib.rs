@@ -7,7 +7,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,9 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-extern crate alloc;
+#![allow(warnings)]
 
-use alloc::vec::Vec;
 use fp_evm::{
 	Context, ExitError, ExitSucceed, Precompile, PrecompileFailure, PrecompileOutput,
 	PrecompileResult,
@@ -295,7 +294,7 @@ impl Precompile for Bn128Pairing {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use ovr_evm_test_vector_support::test_precompile_test_vectors;
+	use ruc_evm_test_vector_support::test_precompile_test_vectors;
 
 	#[test]
 	fn process_consensus_tests_for_add() -> Result<(), String> {

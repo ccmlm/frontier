@@ -7,13 +7,15 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+#![allow(clippy::comparison_chain)]
 
 use core::{cmp::max, ops::BitAnd};
 
@@ -80,12 +82,11 @@ fn calculate_gas_cost(
 
 	let multiplication_complexity = calculate_multiplication_complexity(base_length, mod_length);
 	let iteration_count = calculate_iteration_count(exp_length, exponent);
-	let gas = max(
+
+	max(
 		MIN_GAS_COST,
 		multiplication_complexity * iteration_count / 3,
-	);
-
-	gas
+	)
 }
 
 // ModExp expects the following as inputs:
@@ -223,7 +224,7 @@ impl Precompile for Modexp {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use ovr_evm_test_vector_support::test_precompile_test_vectors;
+	use ruc_evm_test_vector_support::test_precompile_test_vectors;
 
 	#[test]
 	fn process_consensus_tests() -> Result<(), String> {
@@ -265,8 +266,8 @@ mod tests {
 	fn test_insufficient_input() -> Result<(), PrecompileFailure> {
 		let input = hex::decode(
 			"0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001",
+            0000000000000000000000000000000000000000000000000000000000000001\
+            0000000000000000000000000000000000000000000000000000000000000001",
 		)
 		.expect("Decode failed");
 
@@ -298,8 +299,8 @@ mod tests {
 	fn test_excessive_input() -> Result<(), PrecompileFailure> {
 		let input = hex::decode(
 			"1000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001",
+            0000000000000000000000000000000000000000000000000000000000000001\
+            0000000000000000000000000000000000000000000000000000000000000001",
 		)
 		.expect("Decode failed");
 
@@ -331,11 +332,11 @@ mod tests {
 	fn test_simple_inputs() {
 		let input = hex::decode(
 			"0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000001\
-			03\
-			05\
-			07",
+            0000000000000000000000000000000000000000000000000000000000000001\
+            0000000000000000000000000000000000000000000000000000000000000001\
+            03\
+            05\
+            07",
 		)
 		.expect("Decode failed");
 
@@ -366,11 +367,11 @@ mod tests {
 	fn test_large_inputs() {
 		let input = hex::decode(
 			"0000000000000000000000000000000000000000000000000000000000000020\
-			0000000000000000000000000000000000000000000000000000000000000020\
-			0000000000000000000000000000000000000000000000000000000000000020\
-			000000000000000000000000000000000000000000000000000000000000EA5F\
-			0000000000000000000000000000000000000000000000000000000000000015\
-			0000000000000000000000000000000000000000000000000000000000003874",
+            0000000000000000000000000000000000000000000000000000000000000020\
+            0000000000000000000000000000000000000000000000000000000000000020\
+            000000000000000000000000000000000000000000000000000000000000EA5F\
+            0000000000000000000000000000000000000000000000000000000000000015\
+            0000000000000000000000000000000000000000000000000000000000003874",
 		)
 		.expect("Decode failed");
 
@@ -401,11 +402,11 @@ mod tests {
 	fn test_large_computation() {
 		let input = hex::decode(
 			"0000000000000000000000000000000000000000000000000000000000000001\
-			0000000000000000000000000000000000000000000000000000000000000020\
-			0000000000000000000000000000000000000000000000000000000000000020\
-			03\
-			fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2e\
-			fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f",
+            0000000000000000000000000000000000000000000000000000000000000020\
+            0000000000000000000000000000000000000000000000000000000000000020\
+            03\
+            fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2e\
+            fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f",
 		)
 		.expect("Decode failed");
 

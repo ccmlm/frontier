@@ -7,7 +7,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,11 +15,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-extern crate alloc;
+#![allow(warnings)]
 
 mod eip_152;
 
-use core::mem::size_of;
 use fp_evm::{
 	Context, ExitError, ExitSucceed, Precompile, PrecompileFailure, PrecompileOutput,
 	PrecompileResult,
@@ -72,7 +71,7 @@ impl Precompile for Blake2F {
 		for state_word in &mut h {
 			let mut temp: [u8; 8] = Default::default();
 			temp.copy_from_slice(&h_buf[(ctr * 8)..(ctr + 1) * 8]);
-			*state_word = u64::from_le_bytes(temp).into();
+			*state_word = u64::from_le_bytes(temp);
 			ctr += 1;
 		}
 
@@ -83,7 +82,7 @@ impl Precompile for Blake2F {
 		for msg_word in &mut m {
 			let mut temp: [u8; 8] = Default::default();
 			temp.copy_from_slice(&m_buf[(ctr * 8)..(ctr + 1) * 8]);
-			*msg_word = u64::from_le_bytes(temp).into();
+			*msg_word = u64::from_le_bytes(temp);
 			ctr += 1;
 		}
 
@@ -105,9 +104,9 @@ impl Precompile for Blake2F {
 			});
 		};
 
-		crate::eip_152::compress(&mut h, m, [t_0.into(), t_1.into()], f, rounds as usize);
+		crate::eip_152::compress(&mut h, m, [t_0, t_1], f, rounds as usize);
 
-		let mut output_buf = [0u8; 8 * size_of::<u64>()];
+		let mut output_buf = [0u8; u64::BITS as usize];
 		for (i, state_word) in h.iter().enumerate() {
 			output_buf[i * 8..(i + 1) * 8].copy_from_slice(&state_word.to_le_bytes());
 		}
@@ -124,7 +123,7 @@ impl Precompile for Blake2F {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use ovr_evm_test_vector_support::test_precompile_test_vectors;
+	use ruc_evm_test_vector_support::test_precompile_test_vectors;
 
 	#[test]
 	fn process_consensus_tests() -> Result<(), String> {

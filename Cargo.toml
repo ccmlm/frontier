@@ -1,12 +1,13 @@
 [workspace]
 members = [
-	"primitives/evm",
-	"frame/evm/precompile/sha3fips",
-	"frame/evm/precompile/simple",
-	"frame/evm/precompile/modexp",
-	"frame/evm/precompile/ed25519",
-	"frame/evm/precompile/bn128",
-	"frame/evm/precompile/blake2",
-	"frame/evm/precompile/curve25519",
+    "primitives/evm",
+    "frame/evm/precompile/sha3fips",
+    "frame/evm/precompile/simple",
+    "frame/evm/precompile/modexp",
+    "frame/evm/precompile/ethpairing",
+    "frame/evm/precompile/ed25519",
+    "frame/evm/precompile/bn128",
+    "frame/evm/precompile/blake2",
+    "frame/evm/precompile/curve25519",
 ]
 resolver = "2"

@@ -7,13 +7,15 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+#![allow(warnings)]
 
 use evm::{Context, ExitSucceed};
 use fp_evm::Precompile;
@@ -35,7 +37,7 @@ struct EthConsensusTest {
 pub fn test_precompile_test_vectors<P: Precompile>(filepath: &str) -> Result<(), String> {
 	use std::fs;
 
-	let data = fs::read_to_string(&filepath).expect("Failed to read blake2F.json");
+	let data = fs::read_to_string(filepath).expect("Failed to read blake2F.json");
 
 	let tests: Vec<EthConsensusTest> = serde_json::from_str(&data).expect("expected json array");
 
