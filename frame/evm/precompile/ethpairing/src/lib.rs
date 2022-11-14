@@ -41,7 +41,7 @@ impl EthPairing {
 			return Err(ApiError::InputError("input length is zero".to_owned()));
 		}
 		let op = OperationType::from_u8(data[0]).ok_or(ApiError::MissingValue)?;
-		perform_operation(op, &data[0..])
+		perform_operation(op, &data[1..])
 	}
 
 	fn execute_operation(
