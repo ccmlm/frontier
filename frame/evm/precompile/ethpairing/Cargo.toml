@@ -11,7 +11,8 @@ repository = "https://github.com/rust-util-collections/frontier"
 num_enum = { version = "0.5.4", default-features = false }
 fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
 
-precompile-utils = { package = "evm-precompiles", git = "https://github.com/rust-util-collections/evm-precompiles", tag = "ruc-v0.0.1"}
+precompile-utils = { package = "evm-precompiles", git = "https://github.com/rust-util-collections/evm-precompiles", branch = "master" }
+# precompile-utils = { package = "evm-precompiles", git = "https://github.com/rust-util-collections/evm-precompiles", tag = "ruc-v0.0.1"}
 
 eth_pairings = { git = "https://github.com/rust-util-collections/eip1962", tag = "pre-v1" }
 

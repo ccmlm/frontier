@@ -15,7 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-<<<<<<< HEAD
+#![allow(warnings)]
+
 use std::fs;
 
 use evm::{Context, ExitError, ExitReason, ExitSucceed, Transfer};
@@ -24,17 +25,6 @@ use sp_core::{H160, H256};
 
 #[derive(Debug, serde::Deserialize)]
 #[serde(rename_all = "PascalCase")]
-=======
-#![allow(warnings)]
-
-use evm::{Context, ExitSucceed};
-use fp_evm::Precompile;
-
-use serde::Deserialize;
-
-#[allow(non_snake_case)]
-#[derive(Deserialize, Debug)]
->>>>>>> 10df058 (rm needless compenents)
 struct EthConsensusTest {
 	input: String,
 	expected: String,
@@ -115,11 +105,6 @@ impl PrecompileHandle for MockHandle {
 /// The file is expected to be in JSON format and contain an array of test vectors, where each
 /// vector can be deserialized into an "EthConsensusTest".
 pub fn test_precompile_test_vectors<P: Precompile>(filepath: &str) -> Result<(), String> {
-<<<<<<< HEAD
-=======
-	use std::fs;
-
->>>>>>> 10df058 (rm needless compenents)
 	let data = fs::read_to_string(filepath).expect("Failed to read blake2F.json");
 
 	let tests: Vec<EthConsensusTest> = serde_json::from_str(&data).expect("expected json array");

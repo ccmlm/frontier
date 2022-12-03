@@ -4,39 +4,13 @@ version = "2.0.0"
 edition = "2021"
 description = "..."
 license = "Apache-2.0"
-<<<<<<< HEAD
-description = "BN128 precompiles for EVM pallet."
-repository = "https://github.com/paritytech/frontier/"
-
-[dependencies]
-bn = { package = "substrate-bn", version = "0.6", default-features = false }
-
-# Substrate
-sp-core = { version = "6.0.0", git = "https://github.com/paritytech/substrate", branch = "master", default-features = false }
-
-# Frontier
-fp-evm = { version = "3.0.0-dev", path = "../../../../primitives/evm", default-features = false }
-
-[dev-dependencies]
-pallet-evm-test-vector-support = { version = "1.0.0-dev", path = "../../test-vector-support" }
-
-[features]
-default = ["std"]
-std = [
-	# Substrate
-	"sp-core/std",
-	# Frontier
-	"fp-evm/std",
-]
-=======
 homepage = "https://github.com/rust-util-collections/frontier"
 repository = "https://github.com/rust-util-collections/frontier"
 
 [dependencies]
 bn = { package = "substrate-bn", version = "0.6", default-features = false }
 fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
-sp-core = "6.0.0"
+sp-core = "7.0.0"
 
 [dev-dependencies]
 ruc-evm-test-vector-support = { version = "1.0.0", path = "../../test-vector-support" }
->>>>>>> 10df058 (rm needless compenents)

@@ -4,28 +4,6 @@ version = "2.0.0"
 edition = "2021"
 description = "..."
 license = "Apache-2.0"
-<<<<<<< HEAD
-description = "MODEXP precompiles for EVM pallet."
-repository = "https://github.com/paritytech/frontier/"
-
-[dependencies]
-num = { version = "0.4", default-features = false, features = ["alloc"] }
-
-# Frontier
-fp-evm = { version = "3.0.0-dev", path = "../../../../primitives/evm", default-features = false }
-
-[dev-dependencies]
-hex = "0.4.3"
-pallet-evm-test-vector-support = { version = "1.0.0-dev", path = "../../test-vector-support" }
-
-[features]
-default = ["std"]
-std = [
-	"num/std",
-	# Frontier
-	"fp-evm/std",
-]
-=======
 homepage = "https://github.com/rust-util-collections/frontier"
 repository = "https://github.com/rust-util-collections/frontier"
 
@@ -36,4 +14,3 @@ fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
 [dev-dependencies]
 hex = "0.4.3"
 ruc-evm-test-vector-support = { version = "1.0.0", path = "../../test-vector-support" }
->>>>>>> 10df058 (rm needless compenents)

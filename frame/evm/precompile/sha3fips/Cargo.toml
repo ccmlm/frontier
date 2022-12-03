@@ -4,27 +4,9 @@ version = "2.0.0"
 edition = "2021"
 description = "..."
 license = "Apache-2.0"
-<<<<<<< HEAD
-description = "SHA3 FIPS202 precompile for EVM pallet."
-repository = "https://github.com/paritytech/frontier/"
-
-[dependencies]
-tiny-keccak = { version = "2.0", features = ["fips202"] }
-
-# Frontier
-fp-evm = { version = "3.0.0-dev", path = "../../../../primitives/evm", default-features = false }
-
-[features]
-default = ["std"]
-std = [
-	# Frontier
-	"fp-evm/std",
-]
-=======
 homepage = "https://github.com/rust-util-collections/frontier"
 repository = "https://github.com/rust-util-collections/frontier"
 
 [dependencies]
 tiny-keccak = { version = "2.0", features = ["fips202"] }
 fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
->>>>>>> 10df058 (rm needless compenents)
