@@ -9,7 +9,7 @@ repository = "https://github.com/rust-util-collections/frontier"
 
 [dependencies]
 ripemd = { version = "0.1", default-features = false }
-sp-io = "8.0.0"
+sp-io = "20.0.0"
 fp-evm = { package = "ruc-fp-evm", path = "../../../../primitives/evm" }
 
 [dev-dependencies]

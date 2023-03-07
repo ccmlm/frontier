@@ -8,7 +8,7 @@ homepage = "https://github.com/rust-util-collections/frontier"
 repository = "https://github.com/rust-util-collections/frontier"
 
 [dependencies]
-sp-core = "7.0.0"
+sp-core = "18.0.0"
 evm = { version = "0.37.0", features = ["with-codec"] }
 hex = "0.4.3"
 serde = { version = "1.0", features = ["derive"] }
